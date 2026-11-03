@@ -113,6 +113,10 @@ After calibrating each camera, I used the `.cameramodel` files and their corresp
 
 `undistortion_map_kinectV1.py` converts mrcal's non-pinhole models (rich spline models with hundreds of parameters) into dense, OpenCV-compatible binary lookup maps. The C++ side uses them with `cv::remap` to rectify distorted images into clean pinhole frames, so the rest of the pipeline can assume a simple pinhole camera.
 
+I majorly build and test this system on the Freiburg1_room sequence for loop closure because my physcial kinect's cord + the 3 extensions I connected still weren't long enough for me to go from room 1, walk through rooms 2 and 3, and circle back around into room 1. That was my initial plan. But for completeness, here's a demo of my system using my own Kinect V1 dataset:
+
+![chessboard](Results/my_kinect.gif)
+
 ### Representing camera motion
 
 I don't represent camera motion as a 3×3 rotation matrix plus a 3D vector, for two reasons. Nine numbers for a rotation are harder to optimize over, and not every 3×3 matrix is a valid rotation. Instead, a pose update is a small **6D vector** (3 rotation, 3 translation) that is converted to a valid transformation matrix through the **exponential map** of SE(3). In other words, our Lie algebra pose representation :). I use Sophus for `SE3d` and apply updates with a **left perturbation**, `T ← exp(δ) · T`, consistently in the odometry and in the pose graph.
