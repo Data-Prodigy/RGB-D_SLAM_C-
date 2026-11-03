@@ -1,6 +1,7 @@
 # Hello From SleekSlam 👋 : A direct RGB-D SLAM system, built from scratch
-![SLAM Visuals Demo](Results/slam_visuals.gif)
-
+<p align="center">
+  <img src="Results/slam_visuals.gif" alt="SLAM Visuals Demo" width="80%">
+</p>
 This is my first time implementing SLAM, so going from all the theory (lie groups/algebra... gauss newton/LM optimizations... pose estimation fundamentals) to coding out the full system was definitely challenging. It's a near real-time RGB-D SLAM system written in C++23 and CUDA using the Xbox360 **Kinect v1**. It tracks the camera with a **direct** method (no feature matching in the tracker), keeps a **pose graph** in g2o, 
 detects **loop closures** with a bag-of-words vocabulary (rmsalinas FBoW) and RANSAC, and fuses depth into a **GPU TSDF volume** that is turned into a mesh. A Pangolin dashboard shows it all live.
 
