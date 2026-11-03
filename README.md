@@ -144,6 +144,7 @@ I don't represent camera motion as a 3×3 rotation matrix plus a 3D vector, for 
 6. Accept only if there are **at least 35 inliers** and the **inlier RMSE is at most 3.5 cm**. The best candidate (most inliers, then lowest RMSE) becomes a loop edge.
 
 When a loop is found, the edge is added (information weight 1.0, Huber δ = 1.2) and the graph is optimized for up to 40 iterations. The correction goes into the graph; the live tracker keeps running from its own estimate. At the end of the sequence the graph is optimized once more, and the trajectory and TSDF map are rebuilt from the optimized poses.
+![groundtruth_vs_estimate](Results/SE_3_ALIGNED.png)
 
 ### GPU TSDF fusion and meshing
 
