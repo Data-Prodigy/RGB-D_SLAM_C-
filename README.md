@@ -98,7 +98,8 @@ Evaluated on the TUM RGB-D **`freiburg1_room`** sequence (48.9 s, 15.989 m of gr
 The world frame is the first camera frame (+X right, +Y down, +Z forward). `T_wc` maps camera-frame points to world coordinates. The odometry returns `T_cr`, the transform from the reference frame to the current frame (`p_cur = T_cr · p_ref`).
 
 ### Camera calibration with mrcal
-![chessboard](Results/Screenshot from 2026-10-28 08-39-27.png)
+![chessboard](Results/Screenshot%20from%202026-10-28%2008-39-27.png)
+
 I chose **mrcal** for camera calibration because it is robust to lighting conditions and has a much richer lens model than standard OpenCV. Here is how my Kinect v1 IR intrinsics compare with the standard `freiburg1` IR calibration from the TUM dataset:
 
 | | fx | fy | cx | cy |
