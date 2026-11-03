@@ -1,0 +1,24 @@
+@'
+# build output
+build/
+out/
+cmake-build-*/
+CMakeUserPresets.json
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.vcxproj.filters
+x64/
+Debug/
+Release/
+config/orb_mur.fbow
+# generated outputs from running the system
+*.ply
+trajectory_*.txt
+*.pdb
+*.ilk
+*.obj
+
+'@ | Set-Content .gitignore
